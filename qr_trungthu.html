@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mã QR Bánh Trung Thu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            flex-direction: column;
+        }
+        #qrcode-container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #d9534f;
+            margin-bottom: 20px;
+        }
+    </style>
+    <!-- Thư viện tạo mã QR -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+    <div id="qrcode-container">
+        <h1>Mã QR cho Vũ Trụ Galaxy</h1>
+        <div id="qrcode"></div>
+        <p>Quét mã này để xem trang vũ trụ.</p>
+    </div>
+
+    <script>
+        // Sử dụng một thư viện khác để đơn giản hóa và tăng tính tương thích
+        // Thư viện này sẽ tải mã QR dưới dạng hình ảnh
+        const qrImage = document.createElement('img');
+        
+        // Lấy đường dẫn đầy đủ của tệp index.html trong thư mục vũ trụ
+        // Điều này đảm bảo mã QR hoạt động khi mở trực tiếp từ máy tính của bạn
+        const filePath = 'file:///c:/Users/Admin/OneDrive/Ta%CC%80i%20li%C3%AA%CC%A3u/Custom%20Office%20Templates/qu%C3%A0%20t%E1%BA%B7ng/v%C5%A9%20tr%E1%BB%A5/index.html';
+        
+        qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${encodeURIComponent(filePath)}`;
+        
+        document.getElementById('qrcode').appendChild(qrImage);
+    </script>
+
+</body>
+</html>

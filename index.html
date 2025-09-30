@@ -9,5 +9,18 @@
 </head>
 <body>
   <script type="module" src="./galaxy.js"></script>
+  <audio id="background-music" controls loop>
+    <source src="nhacnen.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát âm thanh.
+  </audio>
+
+  <script>
+    // Lắng nghe sự kiện nhấp chuột đầu tiên trên trang
+    document.body.addEventListener('click', () => {
+      const audio = document.getElementById('background-music');
+      // Thử phát nhạc
+      audio.play();
+    }, { once: true }); // { once: true } đảm bảo sự kiện này chỉ chạy một lần
+  </script>
 </body>
 </html>
